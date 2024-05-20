@@ -1,0 +1,23 @@
+.movieCard {
+  max-width: fit-content;
+  position: relative;
+}
+
+.movieCard .movieCardImage {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.movieCard:hover {
+  cursor: pointer;
+}
+
+.movieCard .movieHolder {
+  position: absolute;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.movieCard:hover .movieHolder {
+  cursor: pointer;
+  opacity: 1;
+}

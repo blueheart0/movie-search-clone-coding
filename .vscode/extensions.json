@@ -1,0 +1,14 @@
+{
+	"recommendations": [
+		"vunguyentuan.vscode-css-variables",
+		"dbaeumer.vscode-eslint",
+		"figma.figma-vscode-extension",
+		"ms-vscode.vscode-typescript-next",
+		"esbenp.prettier-vscode",
+		"sibiraj-s.vscode-scss-formatter",
+		"svelte.svelte-vscode",
+		"ardenivanov.svelte-intellisense",
+		"zixuanchen.vitest-explorer",
+		"lokalise.i18n-ally"
+	]
+}
