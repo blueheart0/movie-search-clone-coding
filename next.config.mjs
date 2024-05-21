@@ -8,6 +8,13 @@ const nextConfig = {
         // port: '',
         // pathname: '/account123/**',
       },
+      {
+        protocol: "https",
+        hostname: "localhost",
+        port: "3000",
+        // port: '',
+        // pathname: '/account123/**',
+      },
     ],
   },
 };

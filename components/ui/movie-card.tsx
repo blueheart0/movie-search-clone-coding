@@ -1,8 +1,9 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
+import { Badge } from "./badge";
 import styles from "./movie-card.module.css";
-
 function MovieCard(props: {
   id: string;
   title: string;
@@ -12,37 +13,40 @@ function MovieCard(props: {
   year: string;
 }) {
   const { id, title, medium_cover_image, rating, runtime, year } = props;
+  const [imageSrc, setImageSrc] = React.useState("/error_ryan.png");
   useEffect(() => {
-    return () => {
-      console.log(id + ": unmounting");
-    };
-  }, []);
+    setImageSrc(medium_cover_image);
+  }, [medium_cover_image]);
   return (
     id && (
       <Link href={`/movie/${id}`} key={id}>
         <div className={`flex flex-col items-center ${styles.movieCard}`}>
-          <div className={styles.movieCardImage}>
-            <img
-              src={medium_cover_image}
+          <div
+            className={styles.movieCardImag}
+            style={{ width: 256, height: 384 }}
+          >
+            <Image
+              src={imageSrc}
               alt={title}
-              style={{
-                width: "256px",
-                height: "384px",
-                minHeight: "384px",
-                minWidth: "256px",
+              className="rounded-md object-cover"
+              width={256}
+              height={384}
+              onError={(e) => {
+                setImageSrc("/error_ryan.png");
               }}
             />
           </div>
           <div
             className={
               styles.movieHolder +
-              " flex flex-col gap-2 absolute pt-5 pb-5 pl-10 pr-10 min-h-full min-w-full"
+              " flex flex-col gap-2 absolute justify-between pt-5 pb-5 pl-10 pr-10 min-h-full min-w-full"
             }
           >
-            <h1 className="text-2xl font-bold ">{title}</h1>
-            <h1 className="text-2xl font-bold">{year}</h1>
-            <h1 className="text-2xl font-bold">{rating}</h1>
-            <h1 className="text-2xl font-bold">{runtime}</h1>
+            <h1 className="text-2xl font-bold ">{`${title}\n(${year})`}</h1>
+            <div className="flex justify-end gap-2">
+              <Badge>{`⭐ ${rating}`}</Badge>
+              <Badge className="min-w-fit">{`${runtime} min`}</Badge>
+            </div>
           </div>
         </div>
       </Link>
