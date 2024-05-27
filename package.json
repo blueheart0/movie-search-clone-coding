@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p ${PORT-3000}",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p ${PORT-3000}",
     "lint": "next lint"
   },
   "dependencies": {
@@ -21,7 +21,6 @@
     "react-dom": "^18",
     "react-virtuoso": "^4.7.10",
     "react-window": "^1.8.10",
-    "react-youtube": "^10.1.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
   },
